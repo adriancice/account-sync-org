@@ -1,1 +1,3 @@
-/.sfdx/*
+.sfdx
+.vscode
+.DS_Store
