@@ -54,6 +54,7 @@ public with sharing class Response2Apex {
 	
 	public class Records {
 		public Attributes attributes {get;set;} 
+		public Id Id {get;set;} 
 		public String Name {get;set;} 
 		public String Title {get;set;} 
 		public String Phone {get;set;} 
@@ -66,6 +67,8 @@ public with sharing class Response2Apex {
 					if (parser.nextToken() != System.JSONToken.VALUE_NULL) {
 						if (text == 'attributes') {
 							attributes = new Attributes(parser);
+						} else if (text == 'Id') {
+							Id = parser.getText();
 						} else if (text == 'Name') {
 							Name = parser.getText();
 						} else if (text == 'Title') {
