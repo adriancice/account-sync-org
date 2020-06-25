@@ -1,3 +1,10 @@
+/**
+* @Name ContactTableControllerTest
+* @Author Adrian Paul Stan
+* @Date Created: 20-06-2020
+* @Group Test
+* @Description Test class created for ContactTableController class
+*/
 @isTest
 public with sharing class ContactTableControllerTest {
 	@testSetup

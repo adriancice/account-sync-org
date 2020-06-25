@@ -23,7 +23,6 @@ global with sharing class UpsertContacts2OrgB implements Database.Batchable<sObj
         // Create a new job and save the jobId
         // If the job exist we don´t create it
         if (jobId == null) {
-            System.debug('Dentro del IF');
             jobId = SyncContacts.bulkCreateJob(SyncContacts.getAccessToken());
         }
 
