@@ -1,6 +1,4 @@
 import { LightningElement, track, wire } from 'lwc';
-import { ShowToastEvent } from 'lightning/platformShowToastEvent';
-import sendContacts from "@salesforce/apex/SyncContactsController.sendContactsOrgB";
 import getContacts from '@salesforce/apex/ContactTableController.getContacts';
 
 const columns = [
@@ -38,28 +36,5 @@ export default class ContactsTable extends LightningElement {
     handlePaginatorChange(event) {
         this.recordsToDisplay = event.detail;
         this.rowNumberOffset = this.recordsToDisplay[0].rowNumber - 1;
-    }
-
-    handleClick() {
-        sendContacts()
-            .then(result => {
-                console.log('Batch Id created: ' + result);
-                this.dispatchEvent(
-                    new ShowToastEvent({
-                        title: 'Success!',
-                        message: 'Se han enviado los contactos a la Org B!',
-                        variant: 'success',
-                    }),
-                );
-            })
-            .catch(result => {
-                this.dispatchEvent(
-                    new ShowToastEvent({
-                        title: 'Error al batchear los contactos !',
-                        message: JSON.stringify(result),
-                        variant: 'error',
-                    }),
-                );
-            })
     }
 }

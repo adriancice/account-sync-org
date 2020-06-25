@@ -1,8 +1,5 @@
 <template>
     <lightning-card title="Data Table with Pagination">
-        <lightning-button variant="brand-outline" label="Sync contacts to Org B"
-            title="Syncronize contacts from this Org to Org B" onclick={handleClick} class="slds-m-left_x-small"
-            slot="actions"></lightning-button>
         <template if:true={showTable}>
             <c-paginator records={accs} total-records={accs.length} show-search-box="true"
                 onpaginatorchange={handlePaginatorChange}>
